@@ -12,3 +12,8 @@ type:Namespace2::*::BadStructName
 global:bad_init_global=init
 type:*BadInitClassSubstring*=init
 src:bad/init/files/*=init
+
+src:sub_function.cpp
+fun:*func1*
+# Ignore func1(void) if it is in C++: (not working)
+# fun:_Z8func1v
