@@ -7,6 +7,13 @@ TEST(FooTest, Foo)
     EXPECT_STREQ("foo", foo.c_str());
 }
 
+TEST(FooTest, MemsanError)
+{
+    int *a = new int[10];
+    // a[5] = 0;
+    ASSERT_TRUE(a[0]);
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

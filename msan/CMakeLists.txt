@@ -3,8 +3,13 @@ cmake_minimum_required(VERSION 3.10)
 # set the project name
 project(msan)
 
-set(CMAKE_CXX_FLAGS -fPIE)
-set(CMAKE_C_FLAGS -fPIE)
+# set(MSAN_CFLAGS "-fPIE -fsanitize=memory -stdlib=libc++ -L/llvm-project/build/lib -lc++abi -I/llvm-project/build/include/llvm -I/llvm-project/build/include/c++/v1")
+set(MSAN_CFLAGS "-fPIE -fsanitize=memory -stdlib=libc++  -I/llvm-project/build/include/llvm -I/llvm-project/build/include/c++/v1")
+
+set(CMAKE_CXX_FLAGS  ${MSAN_CFLAGS})
+set(CMAKE_C_FLAGS ${MSAN_CFLAGS})
+
+link_directories(/llvm-project/build/lib)
 
 set(SANITIZE ON)
 
