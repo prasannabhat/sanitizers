@@ -17,7 +17,6 @@ run_docker () {
     memsanitizer:latest
 }
 
-# build_docker
 # build_memsanitizer
 run_docker
 
